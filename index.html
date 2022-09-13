@@ -9,38 +9,29 @@
 </head>
 <body>
     <div class="calc-container">
-        <div class="display">
-
-        </div>
+        <div class="display">80085</div>
         <div class="buttons">
-            <div class="button" id="clear-button">Clear</div>
-            <div class="button" id="divide-button">/</div>
-            <div class="button" id="mult-button">*</div>
-            <div class="button" id="add-button">+</div>
-            <div class="button" id="sub-button">-</div>
-            <div class="button" id="seven">7</div>
-            <div class="button" id="seven">8</div>
-            <div class="button" id="seven">9</div>
-            <div class="button" id="seven">4</div>
-            <div class="button" id="seven">5</div>
-            <div class="button" id="seven">6</div>
-            <div class="button" id="seven">1</div>
-            <div class="button" id="seven">2</div>
-            <div class="button" id="seven">3</div>
-            <div class="button" id="equals">=</div>
+            <button class="func" id="sign-button"><span>+/-</span></button>
+            <button class="func" id="delete-button">DEL</button>
+            <button class="func" id="clear-button">AC</button>
+            <button class="operand" id="sub-button">-</button>
+            <button class="number" id="seven">7</button>
+            <button class="number" id="eight">8</button>
+            <button class="number" id="nine">9</button>
+            <button class="operand" id="add-button">+</button>
+            <button class="number" id="four">4</button>
+            <button class="number" id="five">5</button>
+            <button class="number" id="six">6</button>
+            <button class="operand" id="divide-button">/</button>
+            <button class="number" id="one">1</button>
+            <button class="number" id="two">2</button>
+            <button class="number" id="three">3</button>
+            <button class="operand" id="mult-button">*</button>
+            <button class="number" id="zero">0</button>
+            <button class="number" id="decimal">.</button>
+            <button class="operand" id="equals">=</button>
         </div>
     </div>
+    <script src="./script.js"></script>
 </body>
-<script>
-    function operate(op, a, b){
-        let result = choose[op](a, b);
-        return result;
-    }
-    const choose = {
-        "+": (a, b) => { return a + b; },
-        '-': (a, b) => {return a - b;},
-        '*': (a, b) => {return a & b;},
-        '/': (a, b) => {return a * b},
-    }
-</script>
 </html>
