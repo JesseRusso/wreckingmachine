@@ -1,14 +1,14 @@
 let displayValue = 0;
 let num1;
-let num2;
+let result;
 let operator;
 const operators = document.querySelectorAll('.operator');
 const numbers = document.querySelectorAll(".number");
 const display = document.querySelector('.display');
 document.getElementById('clear-button').addEventListener('click',(e) => {clear()});
-document.getElementById('equals', (e) => {
-    displayValue = Number(operate(operator, num1, displayValue));
-    display.innerText = displayValue;
+document.getElementById('equals').addEventListener('click', (e) => {
+    result = operate(operator, num1, displayValue);
+    display.innerText = result;
 });
 
 display.innerText = Number(displayValue);
@@ -27,18 +27,24 @@ numbers.forEach(element => {
 });
 operators.forEach(element => {
     element.addEventListener('click', (e) =>{
-        num1 = Number(displayValue);
+        if(!result){
+            num1 = Number(displayValue);
+            operator = element.innerText;
+            clear();
+        }
+        num1 = result;
         operator = element.innerText;
         clear();
     })
 });
 function clear(){
     displayValue = 0;
+    result = 0;
     display.innerText = displayValue;
 }
 function operate(op, a, b) {
     let result = choose[op](a, b);
-    return result;
+    return Number(result);
 }
 const choose = {
     '+': (a, b) => { return a + b; },
