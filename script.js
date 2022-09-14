@@ -1,9 +1,18 @@
 let displayValue = 0;
+let num1;
+let num2;
+let operator;
+const operators = document.querySelectorAll('.operator');
+const numbers = document.querySelectorAll(".number");
 const display = document.querySelector('.display');
-display.innerText = Number(displayValue);
+document.getElementById('clear-button').addEventListener('click',(e) => {clear()});
+document.getElementById('equals', (e) => {
+    displayValue = Number(operate(operator, num1, displayValue));
+    display.innerText = displayValue;
+});
 
-const buttons = document.querySelectorAll(".number");
-buttons.forEach(element => {
+display.innerText = Number(displayValue);
+numbers.forEach(element => {
     element.addEventListener("click", (e) => {
         if (displayValue == 0) {
             displayValue = Number(element.innerText);
@@ -16,7 +25,17 @@ buttons.forEach(element => {
         }
     })
 });
-
+operators.forEach(element => {
+    element.addEventListener('click', (e) =>{
+        num1 = Number(displayValue);
+        operator = element.innerText;
+        clear();
+    })
+});
+function clear(){
+    displayValue = 0;
+    display.innerText = displayValue;
+}
 function operate(op, a, b) {
     let result = choose[op](a, b);
     return result;
