@@ -1,8 +1,9 @@
-html{
+html {
     box-sizing: border-box;
     background-color: darkseagreen;
 }
-body{
+
+body {
     display: flex;
     margin: 0;
     height: 100vh;
@@ -10,18 +11,20 @@ body{
     justify-content: center;
     align-items: center;
 }
-.calc-container{
+
+.calc-container {
     display: flex;
     flex-direction: column;
     max-width: 40vw;
-    max-height: 50vh;
+    max-height: 55vh;
     min-width: 222px;
-    gap: 2px;
-    padding:15px;
+    gap: 10px;
+    padding: 15px;
     background-color: silver;
     border-radius: 15px;
 }
-.buttons{
+
+.buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -32,7 +35,8 @@ body{
     text-align: center;
     gap: 3px;
 }
-button{
+
+button {
     text-align: center;
     border-radius: 10px;
     font-size: 2.5em;
@@ -41,24 +45,29 @@ button{
     border: none;
     box-shadow: 0 0 2px;
 }
-.number{
+
+.number {
     background-color: whitesmoke;
 }
-.operator{
+
+.operator {
     background-color: yellow;
 }
-.func{
+
+.func {
     background-color: orange;
     font-size: 1.5em;
     height: 2.5em;
 }
-#zero{
+
+#zero {
     grid-column-start: 1;
     grid-column-end: 3;
 }
-.display{
+
+.display-container {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -68,4 +77,16 @@ button{
     background-color: darkgray;
     box-shadow: inset 0 0 3px;
     border-radius: 5px;
+    height: 70px;
+}
+
+.display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.history{
+    display: flex;
+    height: 1em;
+    font-size: 1em;
 }
