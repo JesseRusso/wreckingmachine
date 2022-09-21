@@ -43,7 +43,7 @@ button {
     height: 1.5em;
     padding: 0 10px 0 10px;
     border: none;
-    box-shadow: 0 0 2px;
+    box-shadow: 0 0 3px;
 }
 
 .number {
@@ -74,10 +74,10 @@ button {
     grid-row-end: 6;
     padding: 0 5px 0 0;
     font-size: 3em;
-    background-color: darkgray;
-    box-shadow: inset 0 0 3px;
-    border-radius: 5px;
-    height: 70px;
+    background-color: darkgrey;
+    box-shadow: inset 0 0 5px;
+    border-radius: 7px;
+    height: 80px;
 }
 
 .display {
@@ -88,5 +88,5 @@ button {
 .history{
     display: flex;
     height: 1em;
-    font-size: 1em;
+    font-size: 0.5em;
 }
