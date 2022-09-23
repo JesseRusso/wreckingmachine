@@ -15,19 +15,19 @@ const choose = {
     '/': (a, b) => { return a / b },
 }
 window.addEventListener('keydown', (e) => keypressHandler(e));
-document.getElementById('clear-button').addEventListener('click', (e) => { clear()});
+document.getElementById('clear-button').addEventListener('click', (e) => { clear() });
 document.getElementById('sign-button').addEventListener('click', (e) => toggleNegative());
 decButton.addEventListener('click', (e) => {
-    if(displayValue.includes('.')){decButton.disabled = true;}
+    if (displayValue.includes('.')) { decButton.disabled = true; }
 });
 document.getElementById('equals').addEventListener('click', (e) => {
-    if (displayValue != null && numArray.length >0) {
-        operate(operator, numArray[0], displayValue); 
+    if (displayValue != null && numArray.length > 0) {
+        operate(operator, numArray[0], displayValue);
         displayValue = null;
     }
 });
 document.getElementById('delete-button').addEventListener('click', (e) => {
-    if(displayValue.length > 0){
+    if (displayValue.length > 0) {
         displayValue = displayValue.slice(0, displayValue.length - 1);
         display.innerText = displayValue;
     }
@@ -43,9 +43,9 @@ numbers.forEach(element => {
             display.innerText = displayValue;
             displayValue = displayValue;
         }
-        if(displayValue.includes('.')){decButton.disabled = true; return;}
+        if (displayValue.includes('.')) { decButton.disabled = true; return; }
         decButton.disabled = false;
-        
+
     })
 });
 operators.forEach(element => {
@@ -98,8 +98,8 @@ function operate(op, a, b) {
         return;
     }
     prevAns = choose[op](numa, numb).toString();
-    if(prevAns.length > 11){
-        let trimmedValue = prevAns.slice(0,11);
+    if (prevAns.length > 11) {
+        let trimmedValue = prevAns.slice(0, 11);
         prevAns = Number(trimmedValue);
     }
     numArray = [];
@@ -107,18 +107,18 @@ function operate(op, a, b) {
     return prevAns;
 }
 
-function keypressHandler(event){
-    if(parseFloat(event.key) >= 0){document.getElementById(`${event.key}`).click(); return;}
-    if(event.key === '*'){document.getElementById('mult-button').click(); return;}
-    if(event.key === '+'){document.getElementById('add-button').click(); return;}
-    if(event.key === '-'){document.getElementById('sub-button').click(); return;}
-    if(event.key === '/'){document.getElementById('divide-button').click(); return;}
-    if(event.key === '.'){decButton.click(); return;}
-    if(event.key === 'Enter'){document.activeElement.blur(); document.getElementById('equals').click(); return;}
-    if(event.key === 'Backspace' || event.key === "Delete"){ document.getElementById('delete-button').click();}
+function keypressHandler(event) {
+    if (parseFloat(event.key) >= 0) { document.getElementById(`${event.key}`).click(); return; }
+    if (event.key === '*') { document.getElementById('mult-button').click(); return; }
+    if (event.key === '+') { document.getElementById('add-button').click(); return; }
+    if (event.key === '-') { document.getElementById('sub-button').click(); return; }
+    if (event.key === '/') { document.getElementById('divide-button').click(); return; }
+    if (event.key === '.') { decButton.click(); return; }
+    if (event.key === 'Enter') { document.activeElement.blur(); document.getElementById('equals').click(); return; }
+    if (event.key === 'Backspace' || event.key === "Delete") { document.getElementById('delete-button').click(); }
 }
-function toggleNegative(){
-    if(displayValue.startsWith('-')){
+function toggleNegative() {
+    if (displayValue.startsWith('-')) {
         let sliced = displayValue.slice(1, displayValue.length);
         displayValue = sliced;
         display.innerText = displayValue;
