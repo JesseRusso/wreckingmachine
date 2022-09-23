@@ -11,7 +11,7 @@ const decButton = document.getElementById('decimal');
 const choose = {
     '+': (a, b) => { return a + b; },
     '-': (a, b) => { return a - b; },
-    '*': (a, b) => { return a * b; },
+    'x': (a, b) => { return a * b; },
     '/': (a, b) => { return a / b },
 }
 window.addEventListener('keydown', (e) => keypressHandler(e));
