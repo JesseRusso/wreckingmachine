@@ -23,7 +23,6 @@ decButton.addEventListener('click', (e) => {
 document.getElementById('equals').addEventListener('click', (e) => {
     if (displayValue != null && numArray.length > 0) {
         operate(operator, numArray[0], displayValue);
-        displayValue = null;
     }
 });
 document.getElementById('delete-button').addEventListener('click', (e) => {
@@ -45,7 +44,6 @@ numbers.forEach(element => {
         }
         if (displayValue.includes('.')) { decButton.disabled = true; return; }
         decButton.disabled = false;
-
     })
 });
 operators.forEach(element => {
@@ -72,6 +70,11 @@ function addOp(op) {
             history.innerText = `${numArray[0]} ${op}`;
             break;
         case 1:
+            if(displayValue === null){
+                operator = op;
+                history.innerText = `${numArray[0]} ${op}`;
+                return;
+            }
             numArray.push(displayValue);
             operate(operator, numArray[0], displayValue);
             history.innerText = `${prevAns} ${op}`;
@@ -83,7 +86,6 @@ function addOp(op) {
             operate(operator, numArray[0], numArray[1]);
             numArray[0] = prevAns;
             operator = op;
-            displayValue = null;
             break;
     }
     decButton.disabled = false;
@@ -93,7 +95,7 @@ function operate(op, a, b) {
     numb = Number(b);
     history.innerText = `${numa} ${op} ${numb} = `;
     decButton.disabled = false;
-    if (op === '/' && numb === 0) {
+    if (op === '/' && b === '0') {
         display.innerText = ':|';
         return;
     }
@@ -104,9 +106,10 @@ function operate(op, a, b) {
     }
     numArray = [];
     display.innerText = prevAns;
+    operator = null;
+    displaValue = null;
     return prevAns;
 }
-
 function keypressHandler(event) {
     if (parseFloat(event.key) >= 0) { document.getElementById(`${event.key}`).click(); return; }
     if (event.key === '*') { document.getElementById('mult-button').click(); return; }
