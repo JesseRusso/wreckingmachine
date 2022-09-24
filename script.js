@@ -23,6 +23,7 @@ decButton.addEventListener('click', (e) => {
 document.getElementById('equals').addEventListener('click', (e) => {
     if (displayValue != null && numArray.length > 0) {
         operate(operator, numArray[0], displayValue);
+        displayValue = null;
     }
 });
 document.getElementById('delete-button').addEventListener('click', (e) => {
