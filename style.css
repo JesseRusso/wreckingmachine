@@ -15,7 +15,7 @@ body {
 .calc-container {
     display: flex;
     flex-direction: column;
-
+    box-shadow: 0 0 4px;
     min-height: 402px;
     min-width: 222px;
     gap: 10px;
